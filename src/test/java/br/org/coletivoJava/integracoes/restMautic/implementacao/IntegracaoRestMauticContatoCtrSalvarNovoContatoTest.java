@@ -8,8 +8,7 @@ package br.org.coletivoJava.integracoes.restMautic.implementacao;
 import com.super_bits.Super_Bits.mktMauticIntegracao.configAppp.ConfiguradorCoremktMauticIntegracao;
 import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller.FabMauticContatoRest;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.RespostaWebServiceSimples;
-import com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.token.ItfTokenGestao;
+import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.ItfRespostaWebServiceSimples;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,7 +25,7 @@ public class IntegracaoRestMauticContatoCtrSalvarNovoContatoTest {
     public void testSomeMethod() {
         SBCore.configurar(new ConfiguradorCoremktMauticIntegracao(), SBCore.ESTADO_APP.DESENVOLVIMENTO);
 
-        RespostaWebServiceSimples resp = FabMauticContatoRest.CONTATO_CTR_SALVAR_NOVO_CONTATO.getAcao(SBCore.getUsuarioLogado(), "EmpresaTeste", "salviof@gmail.com", "www.google.com.br", "3132240677", "apenas um teste").getResposta();
+        ItfRespostaWebServiceSimples resp = FabMauticContatoRest.CONTATO_CTR_SALVAR_NOVO_CONTATO.getAcao(SBCore.getUsuarioLogado(), "EmpresaTeste", "salviof@gmail.com", "www.google.com.br", "3132240677", "apenas um teste").getResposta();
         Assert.assertTrue("Falha  cadastrando contato via rest", resp.isSucesso());
 
     }

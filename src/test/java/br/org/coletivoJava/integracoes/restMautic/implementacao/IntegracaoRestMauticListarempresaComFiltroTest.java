@@ -8,6 +8,7 @@ package br.org.coletivoJava.integracoes.restMautic.implementacao;
 import com.super_bits.Super_Bits.mktMauticIntegracao.configAppp.ConfiguradorCoremktMauticIntegracao;
 import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller.FabMauticContatoRest;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
+import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.ItfRespostaWebServiceSimples;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.RespostaWebServiceSimples;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -38,10 +39,10 @@ public class IntegracaoRestMauticListarempresaComFiltroTest extends TesteJUnitBa
             }
             IntegracaoRestMauticListarempresaComFiltro acao = (IntegracaoRestMauticListarempresaComFiltro) FabMauticContatoRest.LISTAREMPRESA_COM_FILTRO.getAcao(SBCore.getUsuarioLogado(), "salviof@gmail.com");
 
-            RespostaWebServiceSimples resp = acao.getResposta();
+            ItfRespostaWebServiceSimples resp = acao.getResposta();
             assertTrue("Falha ao obter lista de empresas com filtro", resp.isSucesso());
             System.out.println(resp.getRespostaTexto());
-            System.out.println(resp.getRespostaErro());
+            //    System.out.println(resp.getRespostaErro());
         } catch (Throwable t) {
             lancarErroJUnit(t);
         }
