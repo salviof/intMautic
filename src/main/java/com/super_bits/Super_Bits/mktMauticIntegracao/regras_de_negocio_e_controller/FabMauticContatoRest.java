@@ -23,7 +23,15 @@ import com.super_bits.modulosSB.SBCore.modulos.ManipulaArquivo.importacao.FabTip
         tipoAutenticacao = FabTipoAutenticacaoRest.OAUTHV2
 )
 public enum FabMauticContatoRest implements ItfFabricaIntegracaoRest {
+//?where[0][col]=email&where[0][expr]={0
 
+    @InfoConsumoRestService(getPachServico = "/api/contacts?start={0}&limit=" + FabMauticContatoRest.QTD_PADRAO_LISTAGEM, tipoInformacaoRecebida = FabTipoArquivoImportacao.JSON,
+            adicionarAutenticacaoBearer = true)
+    CONTATO_LISTAR,
+    @InfoConsumoRestService(getPachServico = "/api/contacts/{0}/dnc/email/remove", tipoInformacaoRecebida = FabTipoArquivoImportacao.JSON,
+            tipoConexao = FabTipoConexaoRest.POST,
+            adicionarAutenticacaoBearer = true)
+    CONTATO_RETIRAR_DO_NOT_CONTACT,
     @InfoConsumoRestService(getPachServico = "/api/contacts?search={0}", tipoInformacaoRecebida = FabTipoArquivoImportacao.JSON,
             adicionarAutenticacaoBearer = true)
     CONTATO_LISTAR_COM_FILTRO,
@@ -74,5 +82,5 @@ public enum FabMauticContatoRest implements ItfFabricaIntegracaoRest {
             parametrosPost = {"id", "email", "firstname", "lastname", "mobile", "tags"}
     )
     EMPRESA_CTR_SALVAR_ADICIONAR_CONTATO;
-
+    public static final String QTD_PADRAO_LISTAGEM = "50";
 }

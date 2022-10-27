@@ -48,7 +48,7 @@ public class TesteUnitarioOauth {
             }
 
             try {
-                Runtime.getRuntime().exec(new String[]{"chromium-browser", url});
+                Runtime.getRuntime().exec(new String[]{"google-chrome-stable", url});
             } catch (IOException ex) {
                 Logger.getLogger(TesteUnitarioOauth.class.getName()).log(Level.SEVERE, null, ex);
             }

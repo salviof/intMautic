@@ -25,7 +25,8 @@ public class IntegracaoRestMauticContatoCtrSalvarNovoContatoTest {
     public void testSomeMethod() {
         SBCore.configurar(new ConfiguradorCoremktMauticIntegracao(), SBCore.ESTADO_APP.DESENVOLVIMENTO);
 
-        ItfRespostaWebServiceSimples resp = FabMauticContatoRest.CONTATO_CTR_SALVAR_NOVO_CONTATO.getAcao(SBCore.getUsuarioLogado(), "EmpresaTeste", "salviof@gmail.com", "www.google.com.br", "3132240677", "apenas um teste").getResposta();
+        ItfRespostaWebServiceSimples resp = FabMauticContatoRest.CONTATO_CTR_SALVAR_NOVO_CONTATO.getAcao(SBCore.getUsuarioLogado(),
+                "EmpresaTeste", "salviof@gmail.com", "www.google.com.br", "3132240677", "apenas um teste").getResposta();
         Assert.assertTrue("Falha  cadastrando contato via rest", resp.isSucesso());
 
     }

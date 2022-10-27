@@ -1,26 +1,26 @@
 package br.org.coletivoJava.integracoes.restMautic.implementacao;
 
-import br.org.coletivoJava.integracoes.restMautic.api.InfoIntegracaoRestMautic;
+import br.org.coletivoJava.integracoes.restMautic.api.InfoIntegracaoRestMauticRest;
 import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller.FabMauticContatoRest;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.implementacao.AcaoApiIntegracaoComOauthAbstrato;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.FabTipoAgenteClienteApi;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 
-@InfoIntegracaoRestMautic(tipo = FabMauticContatoRest.CONTATO_LISTAR_COM_FILTRO)
-public class IntegracaoRestMauticContatoListarComFiltro
+@InfoIntegracaoRestMauticRest(tipo = FabMauticContatoRest.CONTATO_RETIRAR_DO_NOT_CONTACT)
+public class IntegracaoRestMauticContatoRetirarDoNotContact
         extends
         AcaoApiIntegracaoComOauthAbstrato {
 
-    public IntegracaoRestMauticContatoListarComFiltro(
+    public IntegracaoRestMauticContatoRetirarDoNotContact(
             final FabTipoAgenteClienteApi pTipoAgente,
             final ItfUsuario pUsuario, final java.lang.Object... pParametro) {
-        super(FabMauticContatoRest.CONTATO_LISTAR_COM_FILTRO, pTipoAgente,
+        super(FabMauticContatoRest.CONTATO_RETIRAR_DO_NOT_CONTACT, pTipoAgente,
                 pUsuario, pParametro);
     }
 
     @Override
-    public String gerarUrlRequisicao() {
-        return super.gerarUrlRequisicao(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    public String gerarCorpoRequisicao() {
+        return "";
     }
 
 }

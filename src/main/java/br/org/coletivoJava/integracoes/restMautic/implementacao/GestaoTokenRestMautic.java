@@ -3,6 +3,7 @@ package br.org.coletivoJava.integracoes.restMautic.implementacao;
 import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller.FabConfigModuloMautic;
 import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller.FabMauticContatoRest;
 import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreDataHora;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreJson;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.FabTipoConexaoRest;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.RespostaWebServiceSimples;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.oauth.InfoTokenOauth2;
@@ -11,6 +12,7 @@ import com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.FabTipoAgent
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.implementacao.ChamadaHttpSimples;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.implementacao.UtilSBApiRestClient;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
+import jakarta.json.JsonObject;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -70,6 +72,11 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
 
     }
 
+    @Override
+    public InfoTokenOauth2 gerarNovoToken() {
+        return super.gerarNovoToken(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
     public boolean renovarToken() {
 
         JSONObject tokenArqmazenadoJson = loadTokenArmazenadoComoJsonObject();
@@ -92,9 +99,9 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
         RespostaWebServiceSimples resp = UtilSBApiRestClient.getRespostaRest(renovacaoToken);
 
         if (resp.isSucesso()) {
-            JSONObject respostaJson = resp.getRespostaComoObjetoJson();
+            JsonObject respostaJson = resp.getRespostaComoObjetoJson();
 
-            armazenarRespostaToken(respostaJson.toJSONString());
+            armazenarRespostaToken(UtilSBCoreJson.getTextoByJsonObjeect(respostaJson));
             loadTokenArmazenado();
             return getTokenCompleto().isTokenValido();
         }
