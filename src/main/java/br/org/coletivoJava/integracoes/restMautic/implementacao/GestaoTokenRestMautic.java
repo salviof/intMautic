@@ -45,10 +45,10 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
     }
 
     @Override
-    public InfoTokenOauth2 extrairToken(JSONObject pJson) {
-        String tk = (String) pJson.get("access_token");
+    public InfoTokenOauth2 extrairToken(JsonObject pJson) {
+        String tk = (String) pJson.getString("access_token");
         InfoTokenOauth2 tokenGerado = new InfoTokenOauth2(tk);
-        tokenGerado.setTokenRefresh((String) pJson.get("refresh_token"));
+        tokenGerado.setTokenRefresh((String) pJson.getString("refresh_token"));
         String expiraStr = String.valueOf(pJson.get("dataHoraExpirarToken"));
         tokenGerado.setDataHoraExpirarToken(new Date(Long.valueOf(expiraStr)));
         return tokenGerado;
