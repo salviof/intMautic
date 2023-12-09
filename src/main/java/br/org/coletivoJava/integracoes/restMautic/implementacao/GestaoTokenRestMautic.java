@@ -49,7 +49,7 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
         String tk = (String) pJson.getString("access_token");
         InfoTokenOauth2 tokenGerado = new InfoTokenOauth2(tk);
         tokenGerado.setTokenRefresh((String) pJson.getString("refresh_token"));
-        String expiraStr = String.valueOf(pJson.get("dataHoraExpirarToken"));
+        String expiraStr = String.valueOf(pJson.getString("dataHoraExpirarToken"));
         tokenGerado.setDataHoraExpirarToken(new Date(Long.valueOf(expiraStr)));
         return tokenGerado;
     }
@@ -77,11 +77,11 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
         return super.gerarNovoToken(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
 
-    public boolean renovarToken() {
-
+    @Override
+    public InfoTokenOauth2 renovarToken() {
         JSONObject tokenArqmazenadoJson = loadTokenArmazenadoComoJsonObject();
         if (tokenArqmazenadoJson == null) {
-            return false;
+            return getTokenCompleto();
         }
 
         String tokenAtualizacao = tokenArqmazenadoJson.get("refresh_token").toString();
@@ -103,9 +103,9 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
 
             armazenarRespostaToken(UtilSBCoreJson.getTextoByJsonObjeect(respostaJson));
             loadTokenArmazenado();
-            return getTokenCompleto().isTokenValido();
+            return getTokenCompleto();
         }
-        return getTokenCompleto().isTokenValido();
+        return getTokenCompleto();
 
     }
 
@@ -113,7 +113,7 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
     public boolean validarToken() {
         //TODO implementar Validação
         if (!getTokenCompleto().isTokenValido()) {
-            return renovarToken();
+            return renovarToken().isTokenValido();
 
         }
         return getTokenCompleto().isTokenValido();

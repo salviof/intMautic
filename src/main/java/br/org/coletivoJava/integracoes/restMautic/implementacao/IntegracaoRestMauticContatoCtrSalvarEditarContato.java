@@ -23,13 +23,13 @@ public class IntegracaoRestMauticContatoCtrSalvarEditarContato
 
     @Override
     public String gerarCorpoRequisicao() {
-        List<String> tags = (List) parametros[5];
+        List<String> tags = (List) parametros.get(5);
         JSONObject jsonContato = new JSONObject();
-        jsonContato.put("id", parametros[0]);
-        jsonContato.put("email", parametros[1]);
-        jsonContato.put("firstname", parametros[2]);
-        jsonContato.put("lastname", parametros[3]);
-        jsonContato.put("mobile", parametros[4]);
+        jsonContato.put("id", parametros.get(0));
+        jsonContato.put("email", parametros.get(1));
+        jsonContato.put("firstname", parametros.get(2));
+        jsonContato.put("lastname", parametros.get(3));
+        jsonContato.put("mobile", parametros.get(4));
 
         if (!tags.isEmpty()) {
             JSONArray jsonTags = new JSONArray();
@@ -46,8 +46,8 @@ public class IntegracaoRestMauticContatoCtrSalvarEditarContato
         }
 
         String corpoResicao = jsonContato.toJSONString();
-        // return "{\"id\":\"" + parametros[0] + "\",\"email\":\"" + parametros[1] + "\",\"firstname\":\"" + parametros[2]
-        //        + "\",\"lastname\":\"" + parametros[3] + "\",\"mobile\":\"" + parametros[4] + "\"}";
+        // return "{\"id\":\"" + parametros.get(0] + "\",\"email\":\"" + parametros.get(1] + "\",\"firstname\":\"" + parametros.get(2]
+        //        + "\",\"lastname\":\"" + parametros.get(3] + "\",\"mobile\":\"" + parametros.get(4] + "\"}";
         return corpoResicao;
     }
 

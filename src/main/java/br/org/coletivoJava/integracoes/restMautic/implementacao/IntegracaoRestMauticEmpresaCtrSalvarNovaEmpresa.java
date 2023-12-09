@@ -20,7 +20,11 @@ public class IntegracaoRestMauticEmpresaCtrSalvarNovaEmpresa
 
     @Override
     public String gerarCorpoRequisicao() {
-        return "companyname=" + parametros[0] + "&companyemail=" + parametros[1] + "&companywebsite=" + parametros[2] + "&companyphone=" + parametros[3] + "&companydescription=" + parametros[4];
+        return "companyname=" + parametros.get(0)
+                + "&companyemail=" + parametros.get(1)
+                + "&companywebsite=" + parametros.get(2)
+                + "&companyphone=" + parametros.get(3)
+                + "&companydescription=" + parametros.get(4);
     }
 
 }
