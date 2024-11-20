@@ -79,12 +79,12 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
 
     @Override
     public InfoTokenOauth2 renovarToken() {
-        JSONObject tokenArqmazenadoJson = loadTokenArmazenadoComoJsonObject();
+        JsonObject tokenArqmazenadoJson = loadTokenArmazenadoComoJsonObject();
         if (tokenArqmazenadoJson == null) {
             return getTokenCompleto();
         }
 
-        String tokenAtualizacao = tokenArqmazenadoJson.get("refresh_token").toString();
+        String tokenAtualizacao = tokenArqmazenadoJson.getString("refresh_token");
         ChamadaHttpSimples renovacaoToken = new ChamadaHttpSimples();
         renovacaoToken.setTipoConexao(FabTipoConexaoRest.POST);
         renovacaoToken.setEnderecoHost(urlServidorApiRest);
