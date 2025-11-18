@@ -4,7 +4,7 @@ import br.org.coletivoJava.integracoes.restMautic.api.InfoIntegracaoRestMauticRe
 import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller.FabMauticContatoRest;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.implementacao.AcaoApiIntegracaoComOauthAbstrato;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.FabTipoAgenteClienteApi;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
 
 @InfoIntegracaoRestMauticRest(tipo = FabMauticContatoRest.CONTATO_LISTAR)
 public class IntegracaoRestMauticContatoListar
@@ -13,7 +13,7 @@ public class IntegracaoRestMauticContatoListar
 
 	public IntegracaoRestMauticContatoListar(
 			final FabTipoAgenteClienteApi pTipoAgente,
-			final ItfUsuario pUsuario, final java.lang.Object... pParametro) {
+			final ComoUsuario pUsuario, final java.lang.Object... pParametro) {
 		super(FabMauticContatoRest.CONTATO_LISTAR, pTipoAgente, pUsuario,
 				pParametro);
 	}

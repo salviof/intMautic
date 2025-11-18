@@ -5,7 +5,7 @@
  */
 package com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller;
 
-import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.ItfFabricaIntegracaoRest;
+import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.ComoFabricaIntegracaoRest;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.FabTipoConexaoRest;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.InfoConsumoRestService;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.servicoRegistrado.FabTipoAutenticacaoRest;
@@ -22,7 +22,7 @@ import com.super_bits.modulosSB.SBCore.modulos.ManipulaArquivo.importacao.FabTip
         nomeIntegracao = "mautic",
         tipoAutenticacao = FabTipoAutenticacaoRest.OAUTHV2
 )
-public enum FabMauticContatoRest implements ItfFabricaIntegracaoRest {
+public enum FabMauticContatoRest implements ComoFabricaIntegracaoRest {
 //?where[0][col]=email&where[0][expr]={0
 
     @InfoConsumoRestService(getPachServico = "/api/contacts?start={0}&limit=" + FabMauticContatoRest.QTD_PADRAO_LISTAGEM, tipoInformacaoRecebida = FabTipoArquivoImportacao.JSON,

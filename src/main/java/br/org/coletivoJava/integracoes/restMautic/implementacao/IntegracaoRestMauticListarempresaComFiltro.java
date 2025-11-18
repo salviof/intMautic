@@ -5,7 +5,7 @@ import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_control
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.ConsumoWSExecucao;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.implementacao.AcaoApiIntegracaoComOauthAbstrato;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.FabTipoAgenteClienteApi;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
 import java.util.Map;
 
 @InfoIntegracaoRestMautic(tipo = FabMauticContatoRest.LISTAREMPRESA_COM_FILTRO)
@@ -15,7 +15,7 @@ public class IntegracaoRestMauticListarempresaComFiltro
 
     public IntegracaoRestMauticListarempresaComFiltro(
             final FabTipoAgenteClienteApi pTipoAgente,
-            final ItfUsuario pUsuario, final java.lang.Object... pParametro) {
+            final ComoUsuario pUsuario, final java.lang.Object... pParametro) {
         super(FabMauticContatoRest.LISTAREMPRESA_COM_FILTRO, pTipoAgente,
                 pUsuario, pParametro);
     }
