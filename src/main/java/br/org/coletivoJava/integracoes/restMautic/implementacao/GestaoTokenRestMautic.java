@@ -2,8 +2,8 @@ package br.org.coletivoJava.integracoes.restMautic.implementacao;
 
 import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller.FabConfigModuloMautic;
 import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller.FabMauticContatoRest;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreDataHora;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreJson;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCDataHora;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCJson;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.FabTipoConexaoRest;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.RespostaWebServiceSimples;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.oauth.InfoTokenOauth2;
@@ -61,7 +61,7 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
         JSONObject respostaJson;
         try {
             respostaJson = (JSONObject) parser.parse(pJson);
-            Date dataHora = UtilSBCoreDataHora.incrementaSegundos(new Date(), Integer.parseInt(respostaJson.get("expires_in").toString()));
+            Date dataHora = UtilCRCDataHora.incrementaSegundos(new Date(), Integer.parseInt(respostaJson.get("expires_in").toString()));
             respostaJson.put("dataHoraExpirarToken", String.valueOf(dataHora.getTime()));
 
             return super.armazenarRespostaToken(respostaJson.toJSONString()); //chamada super do metodo (implementação classe pai)
@@ -101,7 +101,7 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
         if (resp.isSucesso()) {
             JsonObject respostaJson = resp.getRespostaComoObjetoJson();
 
-            armazenarRespostaToken(UtilSBCoreJson.getTextoByJsonObjeect(respostaJson));
+            armazenarRespostaToken(UtilCRCJson.getTextoByJsonObjeect(respostaJson));
             loadTokenArmazenado();
             return getTokenCompleto();
         }

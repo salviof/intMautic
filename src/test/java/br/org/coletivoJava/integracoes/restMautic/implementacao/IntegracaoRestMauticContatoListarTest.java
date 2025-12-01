@@ -7,7 +7,7 @@ package br.org.coletivoJava.integracoes.restMautic.implementacao;
 import com.super_bits.Super_Bits.mktMauticIntegracao.configAppp.ConfiguradorCoremktMauticIntegracao;
 import com.super_bits.Super_Bits.mktMauticIntegracao.regras_de_negocio_e_controller.FabMauticContatoRest;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreJson;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCJson;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.WS.conexaoWebServiceClient.ItfRespostaWebServiceSimples;
 import com.super_bits.modulosSB.SBCore.integracao.libRestClient.api.transmissao_recepcao_rest_client.ItfAcaoApiRest;
 import jakarta.json.JsonArray;
@@ -132,7 +132,7 @@ public class IntegracaoRestMauticContatoListarTest extends TesteJUnitBasicoSemPe
 
             }
 
-            //UtilSBCoreJson.getJsonObjectByTexto(pStringJson);
+            //UtilCRCJson.getJsonObjectByTexto(pStringJson);
             assertTrue("Falha ao obter lista de empresas com filtro" + resp.getRetorno(), resp.isSucesso());
 
             //    System.out.println(resp.getRespostaErro());
