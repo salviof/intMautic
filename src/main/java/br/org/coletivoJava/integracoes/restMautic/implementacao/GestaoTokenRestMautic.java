@@ -112,6 +112,9 @@ public class GestaoTokenRestMautic extends GestaoTokenOath2 {
     @Override
     public boolean validarToken() {
         //TODO implementar Validação
+        if (getTokenCompleto() == null) {
+            return false;
+        }
         if (!getTokenCompleto().isTokenValido()) {
             return renovarToken().isTokenValido();
 
