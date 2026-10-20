@@ -21,7 +21,11 @@ public enum FabConfigModuloMautic implements ItfFabConfigModulo {
     @InfoPropriedadeConfigRestIntegracao(tipoPropriedade = FabPropriedadeModuloIntegracaoOauth.CHAVE_PUBLICA)
     CHAVE_API_PUBLICA,
     @InfoPropriedadeConfigRestIntegracao(tipoPropriedade = FabPropriedadeModuloIntegracaoOauth.CHAVE_PRIVADA)
-    CHAVE_API_PRIVADA;
+    CHAVE_API_PRIVADA,
+    @InfoPropriedadeConfigRestIntegracao(tipoPropriedade = FabPropriedadeModuloIntegracaoOauth.USUARIO)
+    USUARIO_ADMIN,
+    @InfoPropriedadeConfigRestIntegracao(tipoPropriedade = FabPropriedadeModuloIntegracaoOauth.SENHA)
+    SENHA_ADMIN;
 
     @Override
     public String getValorPadrao() {

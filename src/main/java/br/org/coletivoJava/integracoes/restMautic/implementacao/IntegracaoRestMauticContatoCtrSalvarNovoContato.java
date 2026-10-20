@@ -17,4 +17,12 @@ public class IntegracaoRestMauticContatoCtrSalvarNovoContato
 		super(FabMauticContatoRest.CONTATO_CTR_SALVAR_NOVO_CONTATO,
 				pTipoAgente, pUsuario, pParametro);
 	}
+
+	/**
+	 * Parâmetros: email, firstname, lastname, mobile, tags (opcional)
+	 */
+	@Override
+	public String gerarCorpoRequisicao() {
+		return UtilMauticCorpoJson.gerarCorpoContato(parametros, 0);
+	}
 }

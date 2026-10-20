@@ -18,13 +18,13 @@ public class IntegracaoRestMauticEmpresaCtrSalvarNovaEmpresa
                 pTipoAgente, pUsuario, pParametro);
     }
 
+    /**
+     * Parâmetros: companyname, companyemail, companywebsite, companyphone,
+     * companydescription
+     */
     @Override
     public String gerarCorpoRequisicao() {
-        return "companyname=" + parametros.get(0)
-                + "&companyemail=" + parametros.get(1)
-                + "&companywebsite=" + parametros.get(2)
-                + "&companyphone=" + parametros.get(3)
-                + "&companydescription=" + parametros.get(4);
+        return UtilMauticCorpoJson.gerarCorpoEmpresa(parametros, 0);
     }
 
 }
